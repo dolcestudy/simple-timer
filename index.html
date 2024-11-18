@@ -3,25 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Enhanced Timer</title>
+  <title>Smart Timer</title>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="timer-container">
-    <h1>Enhanced Timer</h1>
-    <div class="input-group">
-      <label for="hours">Hours:</label>
-      <input type="number" id="hours" min="0" placeholder="0">
-      <label for="minutes">Minutes:</label>
-      <input type="number" id="minutes" min="0" placeholder="0">
-      <label for="seconds">Seconds:</label>
-      <input type="number" id="seconds" min="0" placeholder="0">
-    </div>
-    <button id="start-button">Start</button>
-    <button id="pause-button" disabled>Pause</button>
-    <button id="reset-button" disabled>Reset</button>
+  <div class="smart-timer">
+    <h1 class="title">Smart Timer</h1>
     <div class="timer-display">
-      <h2 id="timer">00:00:00</h2>
+      <span id="hours-display">00</span>:<span id="minutes-display">00</span>:<span id="seconds-display">00</span>
+    </div>
+    <div class="input-container">
+      <input type="number" id="hours" placeholder="00" min="0" max="99">
+      <input type="number" id="minutes" placeholder="00" min="0" max="59">
+      <input type="number" id="seconds" placeholder="00" min="0" max="59">
+    </div>
+    <div class="button-container">
+      <button id="start-button">Start</button>
+      <button id="pause-button" disabled>Pause</button>
+      <button id="reset-button" disabled>Reset</button>
     </div>
   </div>
   <script src="script.js"></script>
