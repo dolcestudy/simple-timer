@@ -1,109 +1,131 @@
-/* 全体のリセット */
+/* 全体リセット */
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-  }
-  
-  body {
-    font-family: 'Roboto', sans-serif;
-    background: linear-gradient(to bottom right, #f5f5f5, #e6e6e6);
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #4e54c8, #8f94fb);
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-  }
-  
-  .smart-timer {
-    background: #ffffff;
-    padding: 30px;
-    border-radius: 20px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    width: 300px;
-  }
-  
-  .title {
-    font-size: 24px;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .timer-display {
-    font-size: 48px;
-    font-weight: bold;
-    color: #333;
-    margin-bottom: 20px;
-  }
-  
-  .timer-display span {
-    display: inline-block;
-    min-width: 50px;
-    text-align: center;
-  }
-  
-  .input-container {
+    overflow: hidden;
+}
+
+.circle-container {
+    position: relative;
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin-bottom: 20px;
-  }
-  
-  input[type="number"] {
-    width: 60px;
-    padding: 8px;
-    border: 2px solid #ddd;
-    border-radius: 8px;
+    align-items: center;
+    width: 800px;
+    height: 800px;
+}
+
+.circle-svg {
+    position: absolute;
+    transform: rotate(-90deg); /* 円が時計回りに減少するように */
+    width: 100%;
+    height: 100%;
+}
+
+/* 円の細さ */
+.circle-svg circle {
+    stroke-width: 1; /* 円の太さを細く */
+}
+
+.circle {
+    position: absolute;
+    width: 740px;
+    height: 740px;
+    background-color: transparent; /* 背景を透明にする */
+    border: 7px solid rgba(255, 255, 255, 0.5); /* アウトラインをホワイトグレー、透明度50%に設定 */
+    border-radius: 50%; /* 円形にするため */
+}
+
+
+
+.smart-timer {
+    background: none;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     text-align: center;
-    font-size: 18px;
-    background: #f9f9f9;
-    transition: border-color 0.3s;
-  }
-  
-  input[type="number"]:focus {
-    border-color: #007bff;
-    outline: none;
-  }
-  
-  .button-container {
-    display: flex;
-    justify-content: space-between;
-    gap: 10px;
-  }
-  
-  button {
-    flex: 1;
-    padding: 10px 0;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
+    width: 380px;
+    z-index: 1;
+}
+
+.title {
+    font-size: 24px;
+    font-weight: 600;
+    color: white;
+    margin-bottom: 25px;
+}
+
+.timer-display {
+    font-size: 48px;
     font-weight: bold;
+    color: white;
+    background: none;
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    letter-spacing: 3px;
+    display: inline-block;
+    min-width: 100%;
+    white-space: nowrap;
+}
+
+.input-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+input[type="number"]::placeholder {
+    color: white;
+}
+
+input[type="number"] {
+    width: 80px;
+    padding: 12px;
+    border: 2px solid #e0e0e0;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 20px;
+    background: transparent;
+    color: white;
+    outline: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button {
+    padding: 14px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    transition: background-color 0.3s, color 0.3s;
-  }
-  
-  button#start-button {
-    background: #007bff;
-    color: #fff;
-  }
-  
-  button#pause-button {
-    background: #ffcc00;
-    color: #fff;
-  }
-  
-  button#reset-button {
-    background: #ff4d4d;
-    color: #fff;
-  }
-  
-  button:disabled {
-    background: #ddd;
-    color: #aaa;
-    cursor: not-allowed;
-  }
-  
-  button:hover:not(:disabled) {
+    transition: all 0.3s ease;
+    background: transparent;
+    color: white;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+button:hover {
     filter: brightness(1.1);
-  }
-  
+}
+
+button:disabled {
+    background: #e0e0e0;
+    color: #888;
+    cursor: not-allowed;
+}
