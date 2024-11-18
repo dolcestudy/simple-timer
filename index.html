@@ -1,28 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart Timer</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Timer</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <div class="smart-timer">
-    <h1 class="title">Smart Timer</h1>
-    <div class="timer-display">
-      <span id="hours-display">00</span>:<span id="minutes-display">00</span>:<span id="seconds-display">00</span>
+    <div class="circle-container">
+        <div class="circle"></div>
+        <svg class="circle-svg" width="600" height="600" viewBox="0 0 120 120" xmlns="http://www.w3.org/2000/svg">
+            <circle class="circle" cx="60" cy="60" r="55" stroke="white" stroke-width="1" fill="none" />
+        </svg>
+        <div class="smart-timer">
+            <h1 class="title"></h1>
+            <div id="timer-display" class="timer-display">00:00:00</div>
+            <div class="input-container">
+                <input id="hours" type="number" placeholder="00" min="0" max="99" required>
+                <input id="minutes" type="number" placeholder="00" min="0" max="59" required>
+                <input id="seconds" type="number" placeholder="00" min="0" max="59" required>
+            </div>
+            <div class="button-container">
+                <button id="start-button" onclick="startTimer()">▶</button>
+                <button id="pause-button" onclick="pauseTimer()" style="display:none;">■ ■</button>
+                <button id="resume-button" onclick="resumeTimer()" style="display:none;">▶</button>
+                <button id="reset-button" onclick="resetTimer()" style="display:none;">■</button>
+            </div>
+        </div>
     </div>
-    <div class="input-container">
-      <input type="number" id="hours" placeholder="00" min="0" max="99">
-      <input type="number" id="minutes" placeholder="00" min="0" max="59">
-      <input type="number" id="seconds" placeholder="00" min="0" max="59">
-    </div>
-    <div class="button-container">
-      <button id="start-button">Start</button>
-      <button id="pause-button" disabled>Pause</button>
-      <button id="reset-button" disabled>Reset</button>
-    </div>
-  </div>
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
